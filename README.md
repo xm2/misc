@@ -1,2 +1,4 @@
-# misc-python
-Misc. in Python
+# misc
+
+Code snippers and ...
+
