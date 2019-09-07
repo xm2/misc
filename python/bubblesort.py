@@ -19,11 +19,11 @@ def bubblesort(arr):
     while swapped:
         swapped = False
         for i in range(1, len(arr)):
-            if arr[i-1] > arr[i]:
-                arr[i-1], arr[i] = arr[i], arr[i-1]
+            if arr[i - 1] > arr[i]:
+                arr[i - 1], arr[i] = arr[i], arr[i - 1]
                 swapped = True
 
-    print arr
+    return arr
 
 
 def bubblesort2(arr):
@@ -47,16 +47,14 @@ def bubblesort2(arr):
     while upper_loop > 1:
         new_upper = 0
         for i in range(1, upper_loop):
-            if arr[i-1] > arr[i]:
-                arr[i-1], arr[i] = arr[i], arr[i-1]
+            if arr[i - 1] > arr[i]:
+                arr[i - 1], arr[i] = arr[i], arr[i - 1]
                 new_upper = i
         upper_loop = new_upper
 
-    print arr
+    return arr
 
 
 if __name__ == "__main__":
-    pass
-    #import doctest
-    #doctest.testmod()
-
+    import doctest
+    doctest.testmod()
