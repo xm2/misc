@@ -1,0 +1,16 @@
+# /usr/lib/systemd/system/ssh-port-forwarding.service
+# internal node --<<ssh tunnel>>-- gw-node --- remote proxy node --- Internet
+[Unit]
+Description=ssh port forwarding for internal node
+After=sshd.service
+
+[Service]
+User=centos
+Group=centos
+Type=simple
+Restart=on-failure
+RestartSec=30
+ExecStart=/usr/bin/ssh -oStrictHostKeyChecking=no -NT -L 8080:proxyserver:proxyport gw-node
+
+[Install]
+WantedBy=multi-user.target
