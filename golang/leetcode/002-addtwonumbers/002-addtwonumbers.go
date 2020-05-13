@@ -19,25 +19,20 @@ type ListNode struct {
 }
 
 func makeNodeListFromNum(num uint) *ListNode {
-	var ret *ListNode
-	r := []uint{}
+	ret := &ListNode{0, nil} //dummy node
+	curr := ret
 	for {
 		if num < 10 {
-			r = append(r, num)
+			curr.Next = &ListNode{num, nil}
 			break
 		}
 
-		r = append(r, num%10)
+		curr.Next = &ListNode{num % 10, nil}
+		curr = curr.Next
 		num = num / 10
 	}
 
-	for i := len(r) - 1; i >= 0; i-- {
-		n := &ListNode{r[i], nil}
-		n.Next = ret
-		ret = n
-	}
-
-	return ret
+	return ret.Next
 }
 
 func nodeListToNum(l *ListNode) uint {
