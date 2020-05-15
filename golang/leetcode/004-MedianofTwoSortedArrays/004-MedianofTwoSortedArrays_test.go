@@ -16,7 +16,7 @@ func Test_findMedianSortedArrays(t *testing.T) {
 		{"Test1", args{[]int{1, 9}, []int{10}}, 9.0},
 		{"Test2", args{[]int{1}, []int{9, 10}}, 9.0},
 		{"Test3", args{[]int{1}, []int{10}}, 5.5},
-		{"Test4", args{[]int{1}, nil}, 0.5},
+		{"Test4", args{[]int{1}, nil}, 1},
 		{"Test5", args{[]int{1, 2, 3, 4, 5}, []int{6, 7, 8, 9, 10}}, 5.5},
 		{"Test6", args{[]int{1, 3, 5, 7, 9}, []int{2, 4, 6, 8, 10}}, 5.5},
 		{"Test7", args{[]int{1, 2, 3, 4, 5}, []int{6, 7, 8, 9}}, 5},
