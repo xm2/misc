@@ -15,6 +15,8 @@ func Test_convert(t *testing.T) {
 		// TODO: Add test cases.
 		{"Test1", args{s: "PAYPALISHIRING", numRows: 3}, "PAHNAPLSIIGYIR"},
 		{"Test2", args{s: "PAYPALISHIRING", numRows: 4}, "PINALSIGYAHRPI"},
+		{"Test3", args{s: "PAYPALISHIRING", numRows: 5}, "PHASIYIRPLIGAN"},
+		{"Test3", args{s: "PAYPALISHIRING", numRows: 6}, "PRAIIYHNPSGAIL"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
