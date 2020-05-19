@@ -30,6 +30,10 @@ func convert(s string, numRows int) string {
 	sArray := [][]byte{}
 	row := 0
 
+	if numRows == 1 {
+		return s
+	}
+
 	for i := 0; i < numRows; i++ {
 		sArray = append(sArray, []byte{})
 	}
