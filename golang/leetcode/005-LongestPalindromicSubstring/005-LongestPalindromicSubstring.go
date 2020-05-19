@@ -25,6 +25,9 @@ func isPalindrome(s string) bool {
 	return true
 }
 
+/**
+time complexity O(n**3)
+*/
 func longestPalindrome(s string) string {
 	segmentSize := len(s)
 
@@ -43,4 +46,47 @@ func longestPalindrome(s string) string {
 	}
 
 	return ""
+}
+
+/**
+time complexity O(n**2)
+*/
+func longestPalindromeV2(s string) string {
+	maxLength := 0
+	centerIndex := 0
+
+	maxLenPalindromeAround := func(s string, i int, j int) int {
+		for {
+			if i >= 0 && j < len(s) && s[i] == s[j] {
+				i--
+				j++
+			} else {
+				break
+			}
+		}
+		return j - i - 1
+	}
+
+	for i := 0; i < len(s); i++ {
+		len1 := maxLenPalindromeAround(s, i, i)
+		len2 := maxLenPalindromeAround(s, i, i+1)
+
+		if len1 < len2 {
+			// len1 carry the bigger value to simplify the blow compare logic
+			len1 = len2
+		}
+
+		if len1 > maxLength {
+			maxLength = len1
+			centerIndex = i
+		}
+	}
+
+	if maxLength < 2 {
+		// exclude single letter
+		return ""
+	}
+
+	return s[centerIndex-(maxLength-1)/2 : centerIndex+maxLength/2+1]
+
 }
