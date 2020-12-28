@@ -43,7 +43,7 @@ func maxAreaV2(height []int) int {
 	max, left, right := 0, 0, len(height)-1
 	for left < right {
 		max = maxInt(max, minInt(height[left], height[right])*(right-left))
-		if height[left] < len(height) {
+		if height[left] < height[right] {
 			left++
 		} else {
 			right--
