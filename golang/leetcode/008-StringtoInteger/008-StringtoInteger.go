@@ -52,7 +52,7 @@ func myAtoi(str string) int {
 	sign := 1
 
 	for _, s := range str {
-		if firstValid == false {
+		if !firstValid {
 			if s != ' ' && s != '+' && s != '-' && !(s >= '0' && s <= '9') {
 				return 0
 			}
@@ -74,10 +74,10 @@ func myAtoi(str string) int {
 
 		if s >= '0' && s <= '9' {
 			sInt := int(s - '0')
-			if r >= math.MaxInt32/10 || r == math.MaxInt32/10 && sInt > 7 {
+			if r > math.MaxInt32/10 || r == math.MaxInt32/10 && sInt > 7 {
 				return math.MaxInt32
 			}
-			if r <= math.MinInt32/10 || r == math.MinInt32/10 && sInt < 8 {
+			if r < math.MinInt32/10 || r == math.MinInt32/10 && sInt > 8 {
 				return math.MinInt32
 			}
 			r = r*10 + sInt*sign
